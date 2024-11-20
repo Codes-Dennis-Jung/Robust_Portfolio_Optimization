@@ -63,12 +63,11 @@ print(f"Epsilon shape: {epsilon.shape}")
 print(f"Alpha shape: {alpha.shape}")
 
 # Initialize robust efficient frontier optimizer
+# Initialize robust efficient frontier optimizer
 optimizer = RobustEfficientFrontier(
     returns=returns,
     expected_returns=expected_returns,  # Now using Series of means
-    epsilon=epsilon,  # Now using Series of single values
-    alpha=alpha,      # Now using Series of single values
-    optimization_method=OptimizationMethod.CVXPY,
+    omega_method=OptimizationMethod.CVXPY,
     half_life=36,
     risk_free_rate=0.02,
     transaction_cost=0.001,
