@@ -90,8 +90,8 @@ import cvxpy as cp
 from scipy import stats
 from typing import Dict, List, Optional, Tuple, Union, Callable
 from enum import Enum
-import warnings
-warnings.simplefilter('ignore')
+#import warnings
+#warnings.simplefilter('ignore')
 
 @dataclass
 class GroupConstraint:
