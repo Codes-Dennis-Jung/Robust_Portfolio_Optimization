@@ -40,6 +40,7 @@ Key Parameters:
 
 
 # BASIC USAGE
+
 The framework supports multiple objective functions, each suited to different investment goals and market conditions:
 
 •	MINIMUM_VARIANCE: Focuses on minimizing portfolio volatility, suitable for risk-averse investors
@@ -108,8 +109,8 @@ Types of Constraints:
 5.	Combined Constraints
 
 # Group Constraints
-
 Example:
+
 from PortOpt import GroupConstraint
 
 tech_sector = GroupConstraint(
@@ -153,6 +154,7 @@ constraints = OptimizationConstraints(
  
 # Combined Constraints
 Example:
+
 constraints = OptimizationConstraints(
     long_only=True,
     group_constraints={
