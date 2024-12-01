@@ -1,4 +1,6 @@
-# Robust_Portfolio_Optimization
+## Robust_Portfolio_Optimization
+
+# Input data
 
 Input data should be in pandas DataFrame format with datetime index:
 Example:
@@ -36,7 +38,8 @@ Key Parameters:
 • risk_free_rate: Annual risk-free rate
 • transaction_cost: Transaction cost as decimal
 
-3. BASIC USAGE
+
+# BASIC USAGE
 The framework supports multiple objective functions, each suited to different investment goals and market conditions:
 
 •	MINIMUM_VARIANCE: Focuses on minimizing portfolio volatility, suitable for risk-averse investors
@@ -64,13 +67,13 @@ result = optimizer.optimize(
     objective=ObjectiveFunction.MEAN_VARIANCE,
     constraints=constraints)
     
-# Access results
+Access results
 optimal_weights = result['weights']
 expected_return = result['return']
 portfolio_risk = result['risk']
 sharpe_ratio = result['sharpe_ratio']
 
-4. WORKING WITH CONSTRAINTS
+# WORKING WITH CONSTRAINTS
 Constraints are essential for creating realistic and implementable portfolios. The framework provides several types of constraints that can be combined to match specific investment requirements:
 
 Group Constraints: Useful for:
@@ -104,7 +107,7 @@ Types of Constraints:
 4.	Tracking Error Constraints
 5.	Combined Constraints
 
-To 1. Group Constraints
+# Group Constraints
 
 Example:
 from PortOpt import GroupConstraint
@@ -123,7 +126,7 @@ constraints = OptimizationConstraints(
         'finance': finance_sector    }
 )
  
-To 2. Box Constraints
+# Box Constraints
 Example:
 
 constraints = OptimizationConstraints(
@@ -134,21 +137,21 @@ constraints = OptimizationConstraints(
     }
 )
 
-To 3. Turnover Constraints
+# Turnover Constraints
 Example:
 
 constraints = OptimizationConstraints(
     max_turnover=0.20  # Maximum 20% turnover
 )
 
-To 4. Tracking Error Constraints
+# Tracking Error Constraints
 Example:
 constraints = OptimizationConstraints(
     max_tracking_error=0.05,
     benchmark_weights=np.array([0.2, 0.3, 0.5])
 )
  
-To 4. Combined Constraints
+# Combined Constraints
 Example:
 constraints = OptimizationConstraints(
     long_only=True,
@@ -165,7 +168,7 @@ constraints = OptimizationConstraints(
     benchmark_weights=benchmark_weights
 )
 
-5. ROBUST PORTFOLIO OPTIMIZATION
+# ROBUST PORTFOLIO OPTIMIZATION
    
 Initializing Robust Optimizer - Example:
 from PortOpt import RobustPortfolioOptimizer
@@ -214,7 +217,8 @@ robust_result = robust_optimizer.optimize(
 
 Here you can add from the section before your individual constraints or current portfolio weights as the starting point.
  
-6. BACKTESTING
+# BACKTESTING
+
 Initializing Backtest Optimizer - Example:
 from PortOpt import RobustBacktestOptimizer
 
@@ -274,7 +278,7 @@ Accessing Results:
 • realized_costs = backtest_results['realized_costs']
 • backtest_metrics = backtest_results['backtest_metrics']
 
-7. EFFICIENT FRONTIER ANALYSIS
+# EFFICIENT FRONTIER ANALYSIS
    
 Initializing Efficient Frontier Calculator - Example:
 from PortOpt import RobustEfficientFrontier
